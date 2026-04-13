@@ -1,0 +1,1188 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com https://www.google.com https://maps.googleapis.com; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https:; frame-src https://www.google.com;">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>ღვინის ქარხანა N1 | Tbilisi</title>
+  <meta name="description" content="ღვინის ქარხანა N1 — თბილისის გულში, ვერის უბანში. 1894 წელს აგებული ისტორიული კომპლექსი, სადაც ქართული ღვინო, სამზარეულო და კულტურა ერთ სივრცეში ერწყმის.">
+  <meta name="keywords" content="ღვინის ქარხანა, Wine Factory N1, თბილისი, ქართული ღვინო, რესტორანი, ვინო, ღვინის დეგუსტაცია">
+  <meta property="og:title" content="ღვინის ქარხანა N1 | თბილისი">
+  <meta property="og:description" content="ისტორიული კომპლექსი თბილისის გულში — ღვინო, სამზარეულო, კულტურა. ეწვიეთ ჩვენ ვასილ პეტრიაშვილის ქ. 1-ზე.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ka_GE">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Georgian:wght@300;400;600;700;900&family=BPG+Nino+Mtavruli&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --wine:       #6B1A1A;
+      --wine-deep:  #3D0A0A;
+      --wine-light: #9B3535;
+      --gold:       #C9A84C;
+      --gold-light: #E8C97A;
+      --cream:      #F5EFE0;
+      --cream-dark: #EDE3CC;
+      --charcoal:   #1C1410;
+      --text:       #2A1F1F;
+      --text-muted: #7A6060;
+      --white:      #FDFAF5;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; font-size: 16px; }
+
+    body {
+      font-family: 'Noto Serif Georgian', Georgia, serif;
+      background: var(--charcoal);
+      color: var(--cream);
+      overflow-x: hidden;
+    }
+
+    /* ── Noise texture overlay ── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0.35;
+    }
+
+    /* ─────────────── NAV ─────────────── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 3rem;
+      height: 72px;
+      background: rgba(28, 20, 16, 0.92);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(201,168,76,.18);
+      transition: background .3s;
+    }
+
+    .nav-logo {
+      font-size: 1.05rem;
+      font-weight: 700;
+      letter-spacing: .12em;
+      color: var(--gold);
+      text-decoration: none;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: .6rem;
+    }
+    .nav-logo span.grape { font-size: 1.4rem; }
+
+    .nav-links {
+      display: flex;
+      gap: 2.2rem;
+      list-style: none;
+    }
+    .nav-links a {
+      color: var(--cream);
+      text-decoration: none;
+      font-size: .78rem;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      opacity: .75;
+      transition: opacity .2s, color .2s;
+    }
+    .nav-links a:hover { opacity: 1; color: var(--gold); }
+
+    .nav-cta {
+      background: var(--wine);
+      color: var(--gold-light) !important;
+      opacity: 1 !important;
+      padding: .45rem 1.2rem;
+      border: 1px solid var(--wine-light);
+      border-radius: 2px;
+      transition: background .2s !important;
+    }
+    .nav-cta:hover { background: var(--wine-light) !important; }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+    .hamburger span {
+      display: block;
+      width: 26px; height: 2px;
+      background: var(--cream);
+      transition: transform .3s, opacity .3s;
+    }
+
+    /* ─────────────── HERO ─────────────── */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      background: var(--wine-deep);
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 60% 40%, rgba(107,26,26,.55) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 80% at 20% 80%, rgba(201,168,76,.12) 0%, transparent 60%),
+        linear-gradient(160deg, #1C0A0A 0%, #2A1010 40%, #0D0808 100%);
+    }
+
+    /* Decorative vine SVG */
+    .hero-vine {
+      position: absolute;
+      right: -40px; top: 0;
+      width: 55%;
+      max-width: 720px;
+      opacity: .08;
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 2rem;
+      max-width: 860px;
+      animation: fadeUp .9s ease both;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      font-size: .7rem;
+      letter-spacing: .25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 1px solid rgba(201,168,76,.4);
+      padding: .35rem 1.1rem;
+      margin-bottom: 1.8rem;
+      border-radius: 2px;
+    }
+
+    .hero-title {
+      font-size: clamp(2.8rem, 8vw, 6.5rem);
+      font-weight: 900;
+      line-height: 1;
+      color: var(--white);
+      margin-bottom: .5rem;
+      text-shadow: 0 4px 40px rgba(107,26,26,.6);
+    }
+    .hero-title em {
+      display: block;
+      font-style: normal;
+      color: var(--gold);
+      font-size: clamp(1.2rem, 4vw, 2.2rem);
+      font-weight: 300;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      margin-top: .4rem;
+    }
+
+    .hero-subtitle {
+      font-size: clamp(.95rem, 2vw, 1.2rem);
+      color: rgba(245,239,224,.65);
+      max-width: 560px;
+      margin: 1.4rem auto 2.5rem;
+      line-height: 1.8;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      background: var(--wine);
+      color: var(--gold-light);
+      text-decoration: none;
+      padding: .85rem 2.2rem;
+      border: 1px solid var(--wine-light);
+      font-size: .82rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      font-family: inherit;
+      cursor: pointer;
+      border-radius: 2px;
+      transition: background .25s, transform .2s, box-shadow .2s;
+      box-shadow: 0 4px 24px rgba(107,26,26,.4);
+    }
+    .btn-primary:hover { background: var(--wine-light); transform: translateY(-2px); box-shadow: 0 8px 32px rgba(107,26,26,.5); }
+
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      background: transparent;
+      color: var(--cream);
+      text-decoration: none;
+      padding: .85rem 2.2rem;
+      border: 1px solid rgba(245,239,224,.3);
+      font-size: .82rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      font-family: inherit;
+      cursor: pointer;
+      border-radius: 2px;
+      transition: border-color .25s, color .25s;
+    }
+    .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: 2.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: .5rem;
+      color: rgba(245,239,224,.4);
+      font-size: .68rem;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+    }
+    .hero-scroll::after {
+      content: '';
+      display: block;
+      width: 1px; height: 40px;
+      background: linear-gradient(to bottom, rgba(201,168,76,.5), transparent);
+      animation: scrollPulse 2s ease-in-out infinite;
+    }
+
+    /* ─────────────── DIVIDER ─────────────── */
+    .ornament-divider {
+      text-align: center;
+      padding: 2rem 0 .5rem;
+      color: var(--gold);
+      font-size: 1.5rem;
+      opacity: .5;
+      letter-spacing: .4em;
+    }
+
+    /* ─────────────── SECTIONS common ─────────────── */
+    section { padding: 7rem 1.5rem; }
+
+    .section-label {
+      font-size: .68rem;
+      letter-spacing: .3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+
+    .section-title {
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.15;
+      margin-bottom: 1.2rem;
+    }
+
+    .section-body {
+      font-size: 1rem;
+      line-height: 1.9;
+      color: rgba(245,239,224,.7);
+      max-width: 640px;
+    }
+
+    .container { max-width: 1200px; margin: 0 auto; }
+
+    /* ─────────────── ABOUT ─────────────── */
+    #about {
+      background: var(--wine-deep);
+      position: relative;
+      overflow: hidden;
+    }
+    #about::before {
+      content: '';
+      position: absolute;
+      top: -200px; right: -200px;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(201,168,76,.07) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    .about-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .stat-card {
+      border: 1px solid rgba(201,168,76,.2);
+      padding: 1.4rem;
+      border-radius: 4px;
+      background: rgba(255,255,255,.03);
+      transition: border-color .3s, background .3s;
+    }
+    .stat-card:hover { border-color: rgba(201,168,76,.5); background: rgba(201,168,76,.05); }
+
+    .stat-num {
+      font-size: 2.2rem;
+      font-weight: 900;
+      color: var(--gold);
+      line-height: 1;
+    }
+    .stat-label {
+      font-size: .75rem;
+      color: rgba(245,239,224,.5);
+      margin-top: .3rem;
+      letter-spacing: .05em;
+    }
+
+    .about-visual {
+      position: relative;
+    }
+    .about-visual-inner {
+      aspect-ratio: 3/4;
+      background:
+        linear-gradient(135deg, rgba(107,26,26,.3) 0%, rgba(28,20,16,.8) 100%),
+        repeating-linear-gradient(
+          45deg,
+          transparent,
+          transparent 20px,
+          rgba(201,168,76,.04) 20px,
+          rgba(201,168,76,.04) 21px
+        );
+      border: 1px solid rgba(201,168,76,.15);
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 5rem;
+      overflow: hidden;
+    }
+    .about-visual-inner::after {
+      content: '🍷';
+      font-size: 6rem;
+      filter: drop-shadow(0 0 40px rgba(107,26,26,.8));
+      animation: floatIcon 4s ease-in-out infinite;
+    }
+    .about-tag {
+      position: absolute;
+      bottom: -1rem; right: -1rem;
+      background: var(--wine);
+      border: 1px solid var(--wine-light);
+      padding: 1rem 1.5rem;
+      border-radius: 4px;
+    }
+    .about-tag strong { display: block; font-size: 1.1rem; color: var(--gold); }
+    .about-tag span { font-size: .72rem; color: rgba(245,239,224,.6); }
+
+    /* ─────────────── HIGHLIGHTS (services) ─────────────── */
+    #services {
+      background: var(--charcoal);
+    }
+
+    .services-header { text-align: center; margin-bottom: 4rem; }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .service-card {
+      background: rgba(255,255,255,.03);
+      border: 1px solid rgba(201,168,76,.12);
+      padding: 2.2rem;
+      border-radius: 6px;
+      transition: transform .3s, border-color .3s, box-shadow .3s;
+      position: relative;
+      overflow: hidden;
+    }
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 3px; height: 100%;
+      background: linear-gradient(to bottom, var(--gold), transparent);
+      transform: scaleY(0);
+      transition: transform .35s;
+      transform-origin: top;
+    }
+    .service-card:hover { transform: translateY(-5px); border-color: rgba(201,168,76,.35); box-shadow: 0 12px 40px rgba(0,0,0,.3); }
+    .service-card:hover::before { transform: scaleY(1); }
+
+    .service-icon { font-size: 2.2rem; margin-bottom: 1.2rem; }
+    .service-name {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: .6rem;
+    }
+    .service-desc {
+      font-size: .88rem;
+      line-height: 1.8;
+      color: rgba(245,239,224,.55);
+    }
+
+    /* ─────────────── HOURS ─────────────── */
+    #hours {
+      background: var(--wine-deep);
+    }
+    .hours-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+    .hours-table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+    .hours-table tr {
+      border-bottom: 1px solid rgba(201,168,76,.1);
+      transition: background .2s;
+    }
+    .hours-table tr:hover { background: rgba(201,168,76,.04); }
+    .hours-table td {
+      padding: .95rem .5rem;
+      font-size: .9rem;
+      color: rgba(245,239,224,.75);
+    }
+    .hours-table td:first-child {
+      font-weight: 600;
+      color: var(--cream);
+      width: 40%;
+    }
+    .hours-table td:last-child {
+      text-align: right;
+      color: var(--gold);
+      font-weight: 600;
+    }
+    .hours-note {
+      margin-top: 1.5rem;
+      padding: 1rem 1.2rem;
+      background: rgba(201,168,76,.07);
+      border-left: 3px solid var(--gold);
+      font-size: .82rem;
+      color: rgba(245,239,224,.6);
+      line-height: 1.7;
+      border-radius: 0 4px 4px 0;
+    }
+    .hours-visual {
+      text-align: center;
+    }
+    .clock-ring {
+      width: 220px; height: 220px;
+      border-radius: 50%;
+      border: 2px solid rgba(201,168,76,.25);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: .3rem;
+      box-shadow: 0 0 60px rgba(107,26,26,.3), inset 0 0 40px rgba(107,26,26,.1);
+      position: relative;
+    }
+    .clock-ring::before {
+      content: '';
+      position: absolute;
+      inset: 12px;
+      border-radius: 50%;
+      border: 1px solid rgba(201,168,76,.12);
+    }
+    .clock-time { font-size: 2.2rem; font-weight: 900; color: var(--gold); }
+    .clock-label { font-size: .7rem; letter-spacing: .2em; text-transform: uppercase; color: rgba(245,239,224,.4); }
+    .open-badge {
+      display: inline-block;
+      margin-top: 1.5rem;
+      background: rgba(60,140,60,.15);
+      color: #7cca7c;
+      border: 1px solid rgba(60,140,60,.3);
+      padding: .4rem 1.2rem;
+      border-radius: 99px;
+      font-size: .75rem;
+      letter-spacing: .1em;
+    }
+
+    /* ─────────────── REVIEWS ─────────────── */
+    #reviews {
+      background: var(--charcoal);
+    }
+    .reviews-header { text-align: center; margin-bottom: 1.5rem; }
+    .rating-hero {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 3.5rem;
+    }
+    .rating-big {
+      font-size: 4.5rem;
+      font-weight: 900;
+      color: var(--gold);
+      line-height: 1;
+    }
+    .rating-info { text-align: left; }
+    .stars { color: var(--gold); font-size: 1.3rem; letter-spacing: .1em; }
+    .rating-count { font-size: .8rem; color: rgba(245,239,224,.4); margin-top: .25rem; }
+
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+    .review-card {
+      background: rgba(255,255,255,.03);
+      border: 1px solid rgba(201,168,76,.12);
+      padding: 2rem;
+      border-radius: 6px;
+      transition: transform .3s, box-shadow .3s;
+    }
+    .review-card:hover { transform: translateY(-4px); box-shadow: 0 8px 32px rgba(0,0,0,.25); }
+    .review-stars { color: var(--gold); margin-bottom: 1rem; font-size: 1rem; }
+    .review-text {
+      font-size: .9rem;
+      line-height: 1.8;
+      color: rgba(245,239,224,.7);
+      margin-bottom: 1.2rem;
+      font-style: italic;
+    }
+    .review-author {
+      font-size: .78rem;
+      color: rgba(245,239,224,.4);
+      font-weight: 600;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+    }
+    .review-source {
+      font-size: .7rem;
+      color: rgba(245,239,224,.25);
+      margin-top: .2rem;
+    }
+    .quote-mark {
+      font-size: 4rem;
+      line-height: .5;
+      color: rgba(201,168,76,.15);
+      font-family: Georgia, serif;
+      margin-bottom: .5rem;
+    }
+
+    /* ─────────────── GALLERY strip ─────────────── */
+    #gallery {
+      background: var(--wine-deep);
+      padding: 5rem 0;
+      overflow: hidden;
+    }
+    .gallery-label { text-align: center; margin-bottom: 3rem; }
+    .gallery-track {
+      display: flex;
+      gap: 1.5rem;
+      animation: marquee 28s linear infinite;
+      width: max-content;
+    }
+    .gallery-track:hover { animation-play-state: paused; }
+    .gallery-item {
+      flex: 0 0 260px;
+      height: 180px;
+      border-radius: 6px;
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(201,168,76,.12);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: .5rem;
+      font-size: .78rem;
+      color: rgba(245,239,224,.45);
+      text-align: center;
+      padding: 1rem;
+      transition: border-color .3s;
+    }
+    .gallery-item:hover { border-color: rgba(201,168,76,.4); }
+    .gallery-item-icon { font-size: 2.2rem; }
+
+    /* ─────────────── CONTACT ─────────────── */
+    #contact {
+      background: var(--charcoal);
+    }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 4rem;
+      align-items: start;
+    }
+    .contact-items { display: flex; flex-direction: column; gap: 1.8rem; }
+    .contact-item { display: flex; gap: 1.2rem; align-items: flex-start; }
+    .contact-icon {
+      width: 44px; height: 44px;
+      border-radius: 4px;
+      background: rgba(107,26,26,.35);
+      border: 1px solid rgba(201,168,76,.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+    .contact-label {
+      font-size: .68rem;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: .3rem;
+    }
+    .contact-value {
+      font-size: .95rem;
+      color: var(--cream);
+      line-height: 1.5;
+      text-decoration: none;
+    }
+    a.contact-value:hover { color: var(--gold); }
+
+    .social-links {
+      display: flex;
+      gap: .8rem;
+      margin-top: 2.5rem;
+    }
+    .social-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      padding: .6rem 1.2rem;
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(201,168,76,.2);
+      border-radius: 4px;
+      color: var(--cream);
+      text-decoration: none;
+      font-size: .8rem;
+      transition: border-color .25s, background .25s;
+    }
+    .social-btn:hover { border-color: var(--gold); background: rgba(201,168,76,.07); }
+
+    .map-wrap {
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid rgba(201,168,76,.2);
+      box-shadow: 0 8px 40px rgba(0,0,0,.4);
+    }
+    .map-wrap iframe {
+      display: block;
+      width: 100%;
+      height: 400px;
+      border: none;
+      filter: grayscale(20%) contrast(1.05);
+    }
+
+    /* ─────────────── FOOTER ─────────────── */
+    footer {
+      background: var(--wine-deep);
+      border-top: 1px solid rgba(201,168,76,.12);
+      padding: 3rem 1.5rem 2rem;
+    }
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+    .footer-logo {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--gold);
+      letter-spacing: .1em;
+    }
+    .footer-copy {
+      font-size: .78rem;
+      color: rgba(245,239,224,.3);
+      text-align: center;
+    }
+    .footer-addr {
+      font-size: .78rem;
+      color: rgba(245,239,224,.4);
+      text-align: right;
+    }
+
+    /* ─────────────── MOBILE NAV ─────────────── */
+    @media (max-width: 860px) {
+      nav { padding: 0 1.5rem; }
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 72px; left: 0; right: 0;
+        background: rgba(28,20,16,.98);
+        padding: 1.5rem;
+        gap: 1.2rem;
+        border-bottom: 1px solid rgba(201,168,76,.15);
+      }
+      .nav-links.open { display: flex; }
+      .hamburger { display: flex; }
+    }
+
+    @media (max-width: 768px) {
+      .about-grid,
+      .hours-layout,
+      .contact-grid { grid-template-columns: 1fr; }
+      .about-visual { display: none; }
+      section { padding: 4rem 1rem; }
+    }
+
+    /* ─────────────── ANIMATIONS ─────────────── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes floatIcon {
+      0%, 100% { transform: translateY(0); }
+      50%       { transform: translateY(-12px); }
+    }
+    @keyframes scrollPulse {
+      0%, 100% { opacity: .4; }
+      50%       { opacity: 1; }
+    }
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══════════ NAV ══════════ -->
+<nav role="navigation" aria-label="მთავარი ნავიგაცია">
+  <a href="#hero" class="nav-logo" aria-label="ღვინის ქარხანა N1 — მთავარი გვერდი">
+    <span class="grape" aria-hidden="true">🍷</span>
+    ღვინის ქარხანა N1
+  </a>
+  <ul class="nav-links" id="navLinks" role="list">
+    <li><a href="#about">ჩვენს შესახებ</a></li>
+    <li><a href="#services">სივრცეები</a></li>
+    <li><a href="#hours">სამუშაო საათები</a></li>
+    <li><a href="#reviews">შეფასებები</a></li>
+    <li><a href="#contact" class="nav-cta">კონტაქტი</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="მენიუს გახსნა" aria-expanded="false" aria-controls="navLinks">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- ══════════ HERO ══════════ -->
+<section class="hero" id="hero" aria-label="მთავარი ბანერი">
+  <div class="hero-bg" aria-hidden="true"></div>
+  <svg class="hero-vine" aria-hidden="true" viewBox="0 0 400 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M200 0 Q300 100 200 200 Q100 300 200 400 Q300 500 200 600 Q100 700 200 800" stroke="white" stroke-width="2" fill="none"/>
+    <circle cx="240" cy="180" r="25" fill="white" opacity=".3"/>
+    <circle cx="160" cy="280" r="18" fill="white" opacity=".2"/>
+    <circle cx="250" cy="420" r="30" fill="white" opacity=".25"/>
+    <circle cx="155" cy="560" r="20" fill="white" opacity=".2"/>
+    <path d="M200 180 Q260 140 280 100" stroke="white" stroke-width="1.5" fill="none" opacity=".4"/>
+    <path d="M200 420 Q280 400 300 360" stroke="white" stroke-width="1.5" fill="none" opacity=".4"/>
+  </svg>
+
+  <div class="hero-content">
+    <div class="hero-badge">თბილისი · ვერის უბანი · 1894</div>
+    <h1 class="hero-title">
+      ღვინის ქარხანა
+      <em>N1</em>
+    </h1>
+    <p class="hero-subtitle">
+      XIX საუკუნის ისტორიული ქარხანა, სადაც ქართული ღვინო, სამზარეულო, ხელოვნება და კულტურა ერთ სივრცეში ცხოვრობს.
+    </p>
+    <div class="hero-actions">
+      <a href="https://maps.app.goo.gl/4hwdn5YVWdKbB7Fs5" rel="noopener noreferrer" target="_blank" class="btn-primary" aria-label="მდებარეობის ნახვა Google Maps-ზე">
+        📍 მარშრუტი
+      </a>
+      <a href="#about" class="btn-outline">
+        მეტის გაგება ↓
+      </a>
+    </div>
+  </div>
+
+  <div class="hero-scroll" aria-hidden="true">ქვემოთ</div>
+</section>
+
+<!-- ══════════ ABOUT ══════════ -->
+<section id="about" aria-labelledby="about-heading">
+  <div class="container">
+    <div class="about-grid">
+      <div class="reveal">
+        <p class="section-label">ჩვენს შესახებ</p>
+        <h2 class="section-title" id="about-heading">ისტორია, <br>რომელიც ცოცხლობს</h2>
+        <p class="section-body">
+          1894–1896 წლებში ცნობილი არქიტექტორ ალექსანდრე ოზეროვის პროექტით აგებული ღვინის ქარხანა, თბილისის ვერის უბანში, ათეული წლების განმავლობაში საქართველოს ღვინის ინდუსტრიის ცენტრი იყო. 2017 წელს ფართომასშტაბიანი რეკონსტრუქციის შემდეგ ქარხანა გაიხსნა ახალ სახით — მრავალფუნქციურ კულტურულ სივრცედ.
+        </p>
+        <p class="section-body" style="margin-top:1rem">
+          დღეს აქ ერთ სივრცეში ბარები, კარგი რესტორნები, ყავის სახლები, ღვინის მაღაზია, კულინარიული სკოლა „Culinarium", ქართველი დიზაინერების კონცეფტ-სტორი, ბარაქალა და სხვა ბევრი სიახლეა.
+        </p>
+        <div class="about-stats" role="list">
+          <div class="stat-card reveal" role="listitem">
+            <div class="stat-num">1894</div>
+            <div class="stat-label">დაარსების წელი</div>
+          </div>
+          <div class="stat-card reveal" role="listitem">
+            <div class="stat-num">4.6★</div>
+            <div class="stat-label">Google-ის შეფასება</div>
+          </div>
+          <div class="stat-card reveal" role="listitem">
+            <div class="stat-num">30 000+</div>
+            <div class="stat-label">ღვინის ბოთლი სარდაფებში</div>
+          </div>
+          <div class="stat-card reveal" role="listitem">
+            <div class="stat-num">2017</div>
+            <div class="stat-label">განახლება</div>
+          </div>
+        </div>
+      </div>
+      <div class="about-visual reveal" aria-hidden="true">
+        <div class="about-visual-inner"></div>
+        <div class="about-tag">
+          <strong>ვერის უბანი</strong>
+          <span>ვ. პეტრიაშვილის ქ. 1, თბილისი</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ SERVICES ══════════ -->
+<section id="services" aria-labelledby="services-heading">
+  <div class="container">
+    <div class="services-header reveal">
+      <p class="section-label">სივრცეები და შეთავაზებები</p>
+      <h2 class="section-title" id="services-heading">ყველაფერი ერთ ეზოში</h2>
+    </div>
+    <div class="services-grid">
+      <article class="service-card reveal" aria-label="ქართული სამზარეულო">
+        <div class="service-icon" aria-hidden="true">🍽️</div>
+        <h3 class="service-name">ქართული სამზარეულო</h3>
+        <p class="service-desc">ხინკლი, ხაჭაპური, მწვადი და სხვა ტრადიციული კერძები — ადგილობრივი ახალი პროდუქტებიდან მომზადებული. Veriko და Veris Duqani — კომპლექსის ქვაკუთხედი რესტორნები.</p>
+      </article>
+      <article class="service-card reveal" aria-label="ღვინის დეგუსტაცია">
+        <div class="service-icon" aria-hidden="true">🍷</div>
+        <h3 class="service-name">ღვინის დეგუსტაცია</h3>
+        <p class="service-desc">ქართული ვაზის 500-ზე მეტი ჯიში, ქვევრის ღვინო, UNESCO-ს მემკვიდრეობის ტექნოლოგიით. სარდაფებში 100 წელზე ძველი ღვინის კოლექცია.</p>
+      </article>
+      <article class="service-card reveal" aria-label="კოქტეილ-ბარი">
+        <div class="service-icon" aria-hidden="true">🍹</div>
+        <h3 class="service-name">Cocktail Factory</h3>
+        <p class="service-desc">ავტორული კოქტეილები ქართული სპირიტებით. ხელოვნური ექსპერიმენტი ლოკალური ინგრედიენტებით — ვიწროდ შერჩეული ბარმენების ხელით.</p>
+      </article>
+      <article class="service-card reveal" aria-label="ღვინის მაღაზია">
+        <div class="service-icon" aria-hidden="true">🏪</div>
+        <h3 class="service-name">ღვინის მაღაზია</h3>
+        <p class="service-desc">ქვეყნის სხვადასხვა კუთხის ვენახებიდან ელიტარული ღვინოები. გრძელ თაროებზე სავარგებო წითელი კიბე — ფოტო, რომელიც ყველამ გადაიღო.</p>
+      </article>
+      <article class="service-card reveal" aria-label="კულინარიული სკოლა">
+        <div class="service-icon" aria-hidden="true">👨‍🍳</div>
+        <h3 class="service-name">Culinarium — კულინარიული სკოლა</h3>
+        <p class="service-desc">ქართული სამზარეულოს სახელოსნოები და სასწავლო კურსები. შეიტყვეთ ყველაფერი ხინკლის ძელის შემოხვევიდან ქვევრის ღვინის ჩასხამამდე.</p>
+      </article>
+      <article class="service-card reveal" aria-label="ქართული დიზაინი">
+        <div class="service-icon" aria-hidden="true">👗</div>
+        <h3 class="service-name">IERI — კონცეფტ-სტორი</h3>
+        <p class="service-desc">ქართველი დიზაინერების ტანსაცმლის შოურუმი. ტრადიციული ელემენტები შერეული თანამედროვე ტენდენციებთან — ადგილობრივი მოდის ვიტრინა.</p>
+      </article>
+      <article class="service-card reveal" aria-label="ბლოხის ბაზრობა">
+        <div class="service-icon" aria-hidden="true">🎪</div>
+        <h3 class="service-name">ბლოხის ბაზრობა</h3>
+        <p class="service-desc">ისტორიული სარდაფის გვერდით — სიღრმიანი, თაღოვანი სივრცე, სადაც ძველი ნივთები ახალ ისტორიებს ეძებენ.</p>
+      </article>
+      <article class="service-card reveal" aria-label="ლაივ მუსიკა">
+        <div class="service-icon" aria-hidden="true">🎶</div>
+        <h3 class="service-name">ლაივ მუსიკა და ღონისძიებები</h3>
+        <p class="service-desc">საღამო ცოცხალი მუსიკით, ხელოვნების ღამეები, კინოჩვენება ეზოში. ქარხანა ყოველ სეზონზე კულტურული მოვლენების ეპიცენტრი ხდება.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ HOURS ══════════ -->
+<section id="hours" aria-labelledby="hours-heading">
+  <div class="container">
+    <div class="hours-layout">
+      <div class="reveal">
+        <p class="section-label">სამუშაო საათები</p>
+        <h2 class="section-title" id="hours-heading">ვართ ღია <br>ყოველდღე</h2>
+        <table class="hours-table" aria-label="სამუშაო საათების ცხრილი">
+          <caption class="sr-only" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)">სამუშაო საათები კვირის დღეების მიხედვით</caption>
+          <tbody>
+            <tr><td>ორშაბათი</td><td>12:00 — 01:00</td></tr>
+            <tr><td>სამშაბათი</td><td>12:00 — 01:00</td></tr>
+            <tr><td>ოთხშაბათი</td><td>12:00 — 01:00</td></tr>
+            <tr><td>ხუთშაბათი</td><td>12:00 — 01:00</td></tr>
+            <tr><td>პარასკევი</td><td>12:00 — 01:00</td></tr>
+            <tr><td>შაბათი</td><td>12:00 — 01:00</td></tr>
+            <tr><td>კვირა</td><td>12:00 — 01:00</td></tr>
+          </tbody>
+        </table>
+        <p class="hours-note">კომპლექსი ღიაა წლის ყველა დღე. ცალკეული სივრცეების საათები შეიძლება განსხვავდებოდეს — გთხოვთ შეამოწმოთ კონკრეტული ობიექტის სამუშაო გრაფიკი.</p>
+      </div>
+      <div class="hours-visual reveal" aria-label="სამუშაო გრაფიკის ვიზუალი">
+        <div class="clock-ring" role="img" aria-label="ყოველდღე 12:00-დან 01:00-მდე">
+          <span class="clock-time">12–01</span>
+          <span class="clock-label">ყოველდღე</span>
+        </div>
+        <div>
+          <span class="open-badge">✓ ღია ახლა</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ GALLERY STRIP ══════════ -->
+<div id="gallery" aria-label="ფოტო გალერეა">
+  <div class="gallery-label">
+    <p class="section-label" style="text-align:center">ატმოსფერო</p>
+  </div>
+  <div class="gallery-track" aria-hidden="true">
+    <div class="gallery-item"><span class="gallery-item-icon">🏛️</span>ისტორიული არქიტექტურა XIX საუკუნისა</div>
+    <div class="gallery-item"><span class="gallery-item-icon">🍷</span>ქვევრის ღვინო ქართული ვაზის ჯიშებიდან</div>
+    <div class="gallery-item"><span class="gallery-item-icon">🌿</span>ლამაზი ეზო ძველი ხეებით</div>
+    <div class="gallery-item"><span class="gallery-item-icon">🎵</span>საღამო ლაივ მუსიკით</div>
+    <div class="gallery-item"><span class="gallery-item-icon">🥟</span>ხინკლი ოსტატების ხელით</div>
+    <div class="gallery-item"><span class="gallery-item-icon">🏺</span>სარდაფი 100+ წლის ბოთლებით</div>
+    <div class="gallery-item"><span class="gallery-item-icon">🛒</span>ბლოხის ბაზრობა ანტიკური ნივთებით</div>
+    <div class="gallery-item"><span class="gallery-item-icon">👨‍🍳</span>კულინარიული სახელოსნოები</div>
+    <!-- doubled for seamless loop -->
+    <div class="gallery-item"><span class="gallery-item-icon">🏛️</span>ისტორიული არქიტექტურა XIX საუკუნისა</div>
+    <div class="gallery-item"><span class="gallery-item-icon">🍷</span>ქვევრის ღვინო ქართული ვაზის ჯიშებიდან</div>
+    <div class="gallery-item"><span class="gallery-item-icon">🌿</span>ლამაზი ეზო ძველი ხეებით</div>
+    <div class="gallery-item"><span class="gallery-item-icon">🎵</span>საღამო ლაივ მუსიკით</div>
+    <div class="gallery-item"><span class="gallery-item-icon">🥟</span>ხინკლი ოსტატების ხელით</div>
+    <div class="gallery-item"><span class="gallery-item-icon">🏺</span>სარდაფი 100+ წლის ბოთლებით</div>
+    <div class="gallery-item"><span class="gallery-item-icon">🛒</span>ბლოხის ბაზრობა ანტიკური ნივთებით</div>
+    <div class="gallery-item"><span class="gallery-item-icon">👨‍🍳</span>კულინარიული სახელოსნოები</div>
+  </div>
+</div>
+
+<!-- ══════════ REVIEWS ══════════ -->
+<section id="reviews" aria-labelledby="reviews-heading">
+  <div class="container">
+    <div class="reviews-header reveal">
+      <p class="section-label">სტუმრების შეფასებები</p>
+      <h2 class="section-title" id="reviews-heading">რას ამბობენ სტუმრები</h2>
+    </div>
+    <div class="rating-hero reveal" aria-label="საშუალო შეფასება 4.6 5-დან">
+      <div class="rating-big">4.6</div>
+      <div class="rating-info">
+        <div class="stars" aria-hidden="true">★★★★★</div>
+        <div class="rating-count">Google Maps · Tripadvisor</div>
+      </div>
+    </div>
+    <div class="reviews-grid">
+      <article class="review-card reveal" aria-label="სტუმრის შეფასება 1">
+        <div class="quote-mark" aria-hidden="true">"</div>
+        <div class="review-stars" aria-label="5 ვარსკვლავი 5-დან" aria-hidden="true">★★★★★</div>
+        <p class="review-text">ეს ადგილი უნიკალურია — ისტორიული ქარხანა, ახლა კი კრეატიულ ჰაბად ქცეული. ბლოხის ბაზრობა, ქართული რესტორნები, ბარები, ყავის სახლები — ყველაფერი ერთ ეზოში. რამდენიმე საათი გავატარეთ და ძალიან კარგი შთაბეჭდილება დაგვრჩა. Tbilisi-ს N1 ადგილი.</p>
+        <p class="review-author">Tripadvisor-ის სტუმარი</p>
+        <p class="review-source">Tripadvisor</p>
+      </article>
+      <article class="review-card reveal" aria-label="სტუმრის შეფასება 2">
+        <div class="quote-mark" aria-hidden="true">"</div>
+        <div class="review-stars" aria-label="5 ვარსკვლავი 5-დან" aria-hidden="true">★★★★★</div>
+        <p class="review-text">ღვინის დეგუსტაცია და ყველის/მეზე ათასი სიამოვნება. ქვევრის ღვინო შეუდარებელია. ქარხნის ატმოსფერო ძალიან სასიამოვნო — თანამედროვე ადამიანებისა და ძველი კედლების სიახლოვე.</p>
+        <p class="review-author">Tripadvisor-ის სტუმარი</p>
+        <p class="review-source">Tripadvisor</p>
+      </article>
+      <article class="review-card reveal" aria-label="სტუმრის შეფასება 3">
+        <div class="quote-mark" aria-hidden="true">"</div>
+        <div class="review-stars" aria-label="5 ვარსკვლავი 5-დან" aria-hidden="true">★★★★★</div>
+        <p class="review-text">ჩემი საყვარელი ადგილი თბილისში! მშვენიერი არქიტექტურა, სტილური, გემრიელი, ძალიან კარგი ატმოსფერო. ოჯახთან ან მეგობრებთან ერთად — პრეცედენტი!</p>
+        <p class="review-author">Google Maps-ის სტუმარი</p>
+        <p class="review-source">Google Maps</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ CONTACT ══════════ -->
+<section id="contact" aria-labelledby="contact-heading">
+  <div class="container">
+    <div class="reveal" style="margin-bottom:3.5rem">
+      <p class="section-label">დაგვიკავშირდით</p>
+      <h2 class="section-title" id="contact-heading">მოგვინახულეთ</h2>
+    </div>
+    <div class="contact-grid">
+      <div>
+        <div class="contact-items reveal">
+          <div class="contact-item">
+            <div class="contact-icon" aria-hidden="true">📍</div>
+            <div>
+              <p class="contact-label">მისამართი</p>
+              <a href="https://maps.app.goo.gl/4hwdn5YVWdKbB7Fs5" rel="noopener noreferrer" target="_blank" class="contact-value" aria-label="მდებარეობის ნახვა Google Maps-ზე">
+                ვასილ პეტრიაშვილის ქ. 1,<br>ვერი, თბილისი, საქართველო
+              </a>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon" aria-hidden="true">🕐</div>
+            <div>
+              <p class="contact-label">სამუშაო საათები</p>
+              <p class="contact-value">ყოველდღე: 12:00 — 01:00</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon" aria-hidden="true">⭐</div>
+            <div>
+              <p class="contact-label">Google შეფასება</p>
+              <p class="contact-value">4.6 / 5 ★★★★★</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon" aria-hidden="true">🚗</div>
+            <div>
+              <p class="contact-label">მარშრუტი</p>
+              <a href="https://maps.app.goo.gl/4hwdn5YVWdKbB7Fs5" rel="noopener noreferrer" target="_blank" class="contact-value" aria-label="Google Maps-ზე მარშრუტის ნახვა">გახსნა Google Maps-ში →</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="social-links reveal" aria-label="სოციალური ქსელები">
+          <a href="https://www.facebook.com/winefactorytbilisi/" rel="noopener noreferrer" target="_blank" class="social-btn" aria-label="Facebook-ის გვერდი">
+            <span aria-hidden="true">📘</span> Facebook
+          </a>
+          <a href="https://www.instagram.com/winefactory_tbilisi/" rel="noopener noreferrer" target="_blank" class="social-btn" aria-label="Instagram-ის გვერდი">
+            <span aria-hidden="true">📷</span> Instagram
+          </a>
+        </div>
+      </div>
+
+      <div class="map-wrap reveal" aria-label="Google Maps ჩაშენებული რუქა">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2977.6!2d44.7811299!3d41.708523!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40440dda6bc66729%3A0x4c6a3c310db8484e!2sWine%20Factory%20N1!5e0!3m2!1ska!2sge!4v1"
+          width="100%"
+          height="400"
+          style="border:0;"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="ღვინის ქარხანა N1 — Google Maps"
+          aria-label="Google Maps რუქა, ღვინის ქარხანა N1, თბილისი">
+        </iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ FOOTER ══════════ -->
+<footer role="contentinfo">
+  <div class="footer-inner">
+    <div class="footer-logo">🍷 ღვინის ქარხანა N1</div>
+    <p class="footer-copy">
+      © <span id="year"></span> ღვინის ქარხანა N1 — ყველა უფლება დაცულია<br>
+      <small style="opacity:.5">ვ. პეტრიაშვილის ქ. 1, თბილისი</small>
+    </p>
+    <p class="footer-addr">
+      <a href="https://www.facebook.com/winefactorytbilisi/" rel="noopener noreferrer" target="_blank" style="color:inherit;text-decoration:none;opacity:.6;margin-right:.8rem" aria-label="Facebook">Facebook</a>
+      <a href="https://www.instagram.com/winefactory_tbilisi/" rel="noopener noreferrer" target="_blank" style="color:inherit;text-decoration:none;opacity:.6" aria-label="Instagram">Instagram</a>
+    </p>
+  </div>
+</footer>
+
+<script>
+  /* ── Year ── */
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  /* ── Hamburger ── */
+  (function () {
+    var btn = document.getElementById('hamburger');
+    var nav = document.getElementById('navLinks');
+    if (!btn || !nav) return;
+    btn.addEventListener('click', function () {
+      var open = nav.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    nav.querySelectorAll('a').forEach(function (a) {
+      a.addEventListener('click', function () {
+        nav.classList.remove('open');
+        btn.setAttribute('aria-expanded', 'false');
+      });
+    });
+  }());
+
+  /* ── Scroll reveal ── */
+  (function () {
+    var els = document.querySelectorAll('.reveal');
+    if (!('IntersectionObserver' in window)) {
+      els.forEach(function (el) { el.classList.add('visible'); });
+      return;
+    }
+    var obs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    els.forEach(function (el) { obs.observe(el); });
+  }());
+
+  /* ── Nav background on scroll ── */
+  (function () {
+    var nav = document.querySelector('nav');
+    if (!nav) return;
+    window.addEventListener('scroll', function () {
+      if (window.scrollY > 60) {
+        nav.style.background = 'rgba(28,20,16,0.98)';
+      } else {
+        nav.style.background = 'rgba(28,20,16,0.92)';
+      }
+    }, { passive: true });
+  }());
+
+  /* ── Open badge: show correct status by Tbilisi time ── */
+  (function () {
+    var badge = document.querySelector('.open-badge');
+    if (!badge) return;
+    try {
+      var now = new Date(new Date().toLocaleString('en-US', { timeZone: 'Asia/Tbilisi' }));
+      var h = now.getHours();
+      var open = h >= 12; /* closes at 01:00 next day; assume open 12–24 for badge */
+      badge.textContent = open ? '✓ ღია ახლა' : '✗ დახურულია';
+      badge.style.background = open ? 'rgba(60,140,60,.15)' : 'rgba(140,60,60,.15)';
+      badge.style.color = open ? '#7cca7c' : '#ca7c7c';
+      badge.style.borderColor = open ? 'rgba(60,140,60,.3)' : 'rgba(140,60,60,.3)';
+    } catch (e) { /* silently ignore timezone errors */ }
+  }());
+</script>
+</body>
+</html>
